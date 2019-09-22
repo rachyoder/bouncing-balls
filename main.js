@@ -5,6 +5,10 @@ var ctx = canvas.getContext('2d');
 var width = canvas.width = window.innerWidth;
 var height = canvas.height = window.innerHeight;
 
+// define score counter
+var counter = document.querySelector('.counter');
+var ballCount = 0;
+
 // function to generate random number
 function random(min, max) {
     var num = Math.floor(Math.random() * (max - min)) + min;
@@ -132,13 +136,11 @@ EvilCircle.prototype.collisionDetect = function () {
 
             if (distance < this.size + balls[j].size) {
                 balls[j].exists = false;
+                ballCount--;
             }
         }
     }
 };
-// define score counter
-var counter = document.querySelector('.counter');
-var ballCount = 0;
 
 // define array to store balls and populate it
 var balls = [];
